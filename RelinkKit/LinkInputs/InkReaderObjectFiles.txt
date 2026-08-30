@@ -11,6 +11,7 @@ Objects/EPUBBuilder.o
 Objects/EPUBReaderView.o
 Objects/FB2ToEPUBConverter.o
 Objects/FormatSniffer.o
+Objects/GeneratedAssetSymbols.o
 Objects/ICloudProgressSync.o
 Objects/ImportError.o
 Objects/ImportPipeline.o

@@ -11,6 +11,7 @@ Objects/EPUBBuilder.o
 Objects/EPUBReaderView.o
 Objects/FB2ToEPUBConverter.o
 Objects/FormatSniffer.o
+Objects/ICloudProgressSync.o
 Objects/ImportError.o
 Objects/ImportPipeline.o
 Objects/ImportProgressView.o
@@ -19,10 +20,12 @@ Objects/LibraryStore.o
 Objects/MarkupToEPUBConverter.o
 Objects/MobiConversionService.o
 Objects/ModelContainerFactory.o
+Objects/OfflineHTTPClient.o
 Objects/PDFReaderView.o
 Objects/ReaderExperience.o
 Objects/ReaderScreen.o
 Objects/RootView.o
+Objects/SharedInboxStore.o
 Objects/SimpleZIPWriter.o
 Objects/SleepTimerCoordinator.o
 Objects/Speech.o

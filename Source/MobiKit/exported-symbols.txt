@@ -1,0 +1,2 @@
+_mobi_kit_convert_to_epub
+_mobi_kit_libmobi_revision

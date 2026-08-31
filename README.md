@@ -20,5 +20,9 @@ The `RelinkKit/Frameworks/MobiKit.xcframework` binary is independently
 replaceable. Its only exported application-facing symbols are
 `mobi_kit_convert_to_epub` and `mobi_kit_libmobi_revision`.
 
+LGPL-3 incorporates the terms and conditions of GPL-3, so both license texts
+are included: [LICENSE-LGPL-3.0.txt](LICENSE-LGPL-3.0.txt) and
+[LICENSE-GPL-3.0.txt](LICENSE-GPL-3.0.txt).
+
 The public compliance repository is:
 <https://github.com/vincentTai/InkReader-LGPL-Compliance>.

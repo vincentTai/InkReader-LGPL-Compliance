@@ -30,3 +30,37 @@ The package includes the matching release object files, package link inputs,
 and recorded linker response file, so the command does not depend on access to
 InkReader source code. Use an ABI-compatible Xcode/Swift toolchain, as Swift
 object compatibility is tied to the compiler version.
+
+`relink.sh` names only a few frameworks explicitly. That is sufficient: the
+Swift driver reads the `LC_LINKER_OPTION` records the compiler embedded in the
+supplied object files and autolinks the rest, including AVFAudio, MediaPlayer,
+NaturalLanguage, CryptoKit and SwiftData.
+
+## Verified end to end
+
+This procedure was executed against the published tree, not just described:
+
+1. `Source/build-mobikit.sh` rebuilt `MobiKit.xcframework` from the published
+   libmobi and MobiKit sources alone.
+2. `Source/MobiKit/src/MobiKit.c` was then modified, rebuilt, and the resulting
+   framework binary was confirmed to carry the modification.
+3. `RelinkKit/relink.sh` produced `Output/InkReader.relinked`, a Mach-O 64-bit
+   arm64 executable, against that modified framework.
+4. `otool -L` shows `@rpath/MobiKit.framework/MobiKit` as a separate load
+   command, and `nm -mu` shows `_mobi_kit_convert_to_epub` as *undefined* in the
+   executable:
+
+   ```
+   (undefined) external _mobi_kit_convert_to_epub (from MobiKit)
+   ```
+
+   The symbol is therefore resolved at load time from the replaceable framework,
+   which is what LGPL-3 §4(d)(0) requires.
+
+## Licenses
+
+libmobi is LGPL-3.0-or-later. LGPL-3 incorporates the terms and conditions of
+GPL-3, so both texts are part of the license and both are included here, as
+[LICENSE-LGPL-3.0.txt](LICENSE-LGPL-3.0.txt) and
+[LICENSE-GPL-3.0.txt](LICENSE-GPL-3.0.txt). The same two texts are reproduced
+in the app under Settings → Open Source Licenses.
